@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="main">
+    <insert id="insertColor" parameterType="com.example.one.model.Color">
+        INSERT INTO tb_color
+        (color_id, color_name)
+        VALUES
+        (#{colorId}, #{colorName})
+    </insert>
+
+    <update id="updateColor" parameterType="com.example.one.model.Color">
+        UPDATE tb_color SET
+        color_name = #{colorName}
+        WHERE color_id = #{colorId}
+    </update>
+
+    <select id="selectColor" parameterType="String" resultType="com.example.one.model.Color">
+        SELECT color_id, color_name
+        FROM tb_color
+        WHERE color_id = #{colorId}
+    </select>
+
+    <delete id="deleteColor" parameterType="String" >
+        DELETE FROM tb_color
+        WHERE color_id = #{colorId}
+    </delete>
+</mapper>

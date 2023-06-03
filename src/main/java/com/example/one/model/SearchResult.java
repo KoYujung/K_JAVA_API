@@ -13,6 +13,6 @@ public class SearchResult {
     private Integer start;
     private Integer display;
 
-    private List<Book> items;
-
+//    private List<Book> items;
+    private List<Farm> items;
 }

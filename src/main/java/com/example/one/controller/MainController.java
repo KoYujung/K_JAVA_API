@@ -1,12 +1,15 @@
 package com.example.one.controller;
 
 import com.example.one.model.Color;
+import com.example.one.model.Farm;
 import com.example.one.service.MainService;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import java.io.IOException;
 
 @RestController
 @RequestMapping("/")
@@ -57,5 +60,7 @@ public class MainController {
         mainService.deleteColor(colorId);
         return "Delete OK";
     }
+
+
 
 }
