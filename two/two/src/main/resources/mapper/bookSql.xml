@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="book">
+    <insert id="insertBook" parameterType="com.example.one.model.Book">
+        INSERT INTO tb_book
+            (isbn, title, link, image, author, discount, publisher, pubdate, description)
+        VALUES
+            (#{isbn}, #{title}, #{link}, #{image}, #{author}, #{discount}, #{publisher}, #{pubdate}, #{description})
+        ON CONFLICT (isbn) DO UPDATE
+            SET discount = #{discount}, pubdate = #{pubdate}
+    </insert>
+
+    <select id="listBook" parameterType="String" resultType="com.example.one.model.Book">
+        SELECT *
+        FROM tb_book
+        WHERE title LIKE '%' || #{query} || '%'
+    </select>
+</mapper>
